@@ -108,7 +108,12 @@
       @click="clickpopupMark"
     ></view>
     <view class="charts-box">
-      <qiun-data-charts type="column" :opts="opts" :chartData="chartData" />
+      <qiun-data-charts
+        type="column"
+        :opts="opts"
+        :ontouch="true"
+        :chartData="chartData"
+      />
     </view>
     <view class="totalText" v-if="totalTextShow">
       <text>累计{{ total }}cal</text>
@@ -174,8 +179,11 @@ export default {
 
       amount: undefined,
       opts: {
+        enableScroll: true, //开启图表拖拽功能
         xAxis: {
           disableGrid: true,
+          scrollShow: true, //新增是否显示滚动条，默认false
+          itemCount: 3,
         },
         yAxis: {
           data: [
@@ -592,7 +600,7 @@ export default {
   border-radius: 20rpx;
   text-align: center;
 }
-.totalText text{
+.totalText text {
   display: block;
   font-weight: 600;
   font-size: 35rpx;
