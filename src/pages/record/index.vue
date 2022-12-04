@@ -60,20 +60,17 @@ export default {
       if (this.record.foodRecord == true && this.record.motionRecord == true) {
         this.isNewRecord = true;
         this.updateRecord();
-        console.log("11111");
       } else if (
         this.record.foodRecord == false &&
         this.record.motionRecord == false
       ) {
         this.isNewRecord = true;
-        console.log("112");
       }
     },
     async createRecord() {
       try {
         let recordData = await createRecord();
         this.recordId = recordData.recordId;
-        console.log(this.recordId);
       } catch (e) {
         console.log(e);
       }

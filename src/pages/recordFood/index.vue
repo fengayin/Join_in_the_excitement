@@ -428,7 +428,6 @@ export default {
         };
         sureFoodList.push(sureFood);
       });
-      console.log(sureFoodList);
       if (sureFoodList.length > 0) {
         this.recordAllFood(sureFoodList);
         this.addFoodMap = new Map();

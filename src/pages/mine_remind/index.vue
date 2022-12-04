@@ -128,7 +128,6 @@ export default {
     async getMsgList() {
       try {
         this.remindList = await getMsgList();
-        console.log("添加消息", this.remindList);
       } catch (e) {
         console.log(e);
       }
@@ -183,7 +182,6 @@ export default {
     async sendMsg() {
       try {
         let remindList = await sendMsg(this.remindItem);
-        console.log("remindItem", remindList);
       } catch (e) {
         console.log(e);
       }
@@ -192,7 +190,6 @@ export default {
     async deleteMess(messId) {
       try {
         let isdelete = await deleteMess(messId);
-        console.log("isdelete", isdelete);
         uni.redirectTo({
           url: "../mine_remind/index",
         });
@@ -203,7 +200,6 @@ export default {
     // 格式化日对象
     getNowDate(t) {
       var date = new Date(t);
-      console.log(date);
       var sign2 = ":";
       var year = date.getFullYear(); // 年
       var month = date.getMonth() + 1; // 月
@@ -244,14 +240,10 @@ export default {
     addRemind(k, e) {
       k.moreBoxShow = false;
       this.remindItem.thing1 = k.messValue;
-
       this.remindItem.time2 = this.getNowDate(e);
-
-      console.log("remindItem", this.remindItem);
       wx.requestSubscribeMessage({
         tmplIds: ["601S4P4tM65eUp4_Upls5Vb-8yEpdYVCxNRYkSG3xX8"],
         success: (res) => {
-          console.log(k);
           this.sendMsg();
           this.deleteMess(k.messId);
         },

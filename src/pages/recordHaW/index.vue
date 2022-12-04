@@ -56,7 +56,6 @@ export default {
     async addHaw() {
       try {
         let hawList = await addHaw(this.haw);
-        console.log("haw", hawList);
       } catch (e) {
         console.log(e);
       }

@@ -53,7 +53,6 @@ export default {
     // 格式化日对象
     getNowDate(t) {
       var date = new Date(t);
-      console.log(date);
       var sign2 = ":";
       var year = date.getFullYear(); // 年
       var month = date.getMonth() + 1; // 月
@@ -96,7 +95,6 @@ export default {
     async sendMsg() {
       try {
         let remindList = await sendMsg(this.remindItem);
-        console.log("remindItem", remindList);
       } catch (e) {
         console.log(e);
       }
@@ -105,7 +103,6 @@ export default {
      async deleteMess() {
       try {
         let isdelete = await deleteMess(this.messId);
-        console.log("isdelete", isdelete);
       } catch (e) {
         console.log(e);
       }
@@ -120,9 +117,7 @@ export default {
         // });
         if (this.messId) {
           this.deleteMess()
-          console.log("isdelete");
         }
-        console.log(this.remindItem);
         wx.requestSubscribeMessage({
           tmplIds: ["601S4P4tM65eUp4_Upls5Vb-8yEpdYVCxNRYkSG3xX8"],
           success: (res) => {
